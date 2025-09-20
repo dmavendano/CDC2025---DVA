@@ -17,7 +17,7 @@ WHERE.
 
 # status update for troubleshooting
 print("querying NASA exoplanet archive")
-reponse = request.get(TAP_URL) + query + "&format=csv)"
+reponse = requests.get(TAP_URL) + query + "&format=csv)"
 print("query successful")
 
 # prepares the text data to be read by pandas
