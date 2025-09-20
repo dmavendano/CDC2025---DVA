@@ -6,18 +6,18 @@ from io import StringIO
 TAP_URL = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query="
 
 # tap query to select specific columns (filtering variables)
-query = """ 
+query = """
 SELECT 
     pl_name, hostname, pl_radj, pl_bmassj, sy_dist, st_spectype, st_age,st_mass,pl_orbper
 FROM 
     pscomppars
 WHERE.   
-    sy_dist < 15.3
-    """
+    sy_dist < 15.3"""
+
 
 # status update for troubleshooting
 print("querying NASA exoplanet archive")
-reponse = request.get(TAP_URL) + query + "&format=csv)"
+response = requests.get(TAP_URL + query + "&format=csv")
 print("query successful")
 
 # prepares the text data to be read by pandas
